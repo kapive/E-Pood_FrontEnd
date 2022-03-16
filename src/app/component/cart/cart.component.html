@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="col">
+    <ng-container *ngFor="let cart of cartProducts">
+      <div class="row">
+        <div class="card col m-2">
+            <h5>{{ cart.product.productName }}</h5>
+            <p><Strong>Price:</Strong> {{ cart.product.productCost }}$ </p>
+            <p><Strong>Quantity:</Strong> {{ cart.quantity }} </p>
+        </div>
+        <div class="card col m-2">
+          <button class="btn btn-primary my-2" (click)="this.addProductQuantityPerOne(cart.product.productId)">+</button>
+          <button class="btn btn-primary my-2" (click)="this.removeProductQuantityPerOne(cart.product.productId)">-</button>
+          <button class="btn btn-primary my-2" (click)="this.deleteProductFromCart(cart.product.productId)">Delete</button>
+        </div>
+      </div>
+    </ng-container>
+    <div class="row m-2">
+      <div class="col m-2">
+        <p><Strong>Total cost:</Strong>{{ this.countTotalCost() }}$ </p>
+      </div>
+      <div class="col m-2">
+        <button class="btn btn-primary" (click)="this.checkOut()">Check оut</button>
+      </div>
+    </div>
+  </div>
+</div>
